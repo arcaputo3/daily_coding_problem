@@ -25,6 +25,7 @@ def min_arr_range(arr):
 
     return (left, right)
 
+
 if __name__ == "__main__":
     # Test cases
     print(min_arr_range([3, 7, 5, 6, 9]))

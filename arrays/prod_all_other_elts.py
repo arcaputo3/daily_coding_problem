@@ -8,8 +8,9 @@ def arr_prod_w_div(arr):
     returns the product of all other elements for each element
     as an array. """
 
-    # Get total product and zero count
+    # Init total product and zero count
     prod, zero_count = 1, 0
+
     for v in arr:
         if not v:
             # If more than 1 zero, return all zeros
@@ -22,7 +23,6 @@ def arr_prod_w_div(arr):
     if zero_count:
         return [0 if v else prod for v in arr]
     return [prod//v for v in arr]
-
 
 
 def arr_prod(arr):
@@ -46,7 +46,7 @@ def arr_prod(arr):
 
 if __name__ == "__main__":
     # Test cases
-    print(arr_prod_w_div([1, 2, 3, 4, 0, 0]))
-    print(arr_prod_w_div([4, 3, 2]))
-    print(arr_prod([1, 2, 3, 4, 5]))
-    print(arr_prod([4, 3, 2]))
+    print("w/ div", arr_prod_w_div([1, 2, 3, 4, 0, 0]))
+    print("w/ div", arr_prod_w_div([4, 3, 2]))
+    print("w/o div", arr_prod([1, 2, 3, 4, 5]))
+    print("w/o div", arr_prod([4, 3, 2]))
