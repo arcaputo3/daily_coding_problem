@@ -6,7 +6,6 @@ For example, given [3, 4, 9, 6, 1], return [1, 1, 2, 1, 0]. """
 
 def naive_sol(arr):
     """ Naive solution to above problem. Runs in O(n^2) time. """
-
     # Intiate output with zeros
     out = [0 for v in arr]
 
@@ -18,20 +17,27 @@ def naive_sol(arr):
 
 def count_smaller(nums):
     """ Main solution. """
+
     def sort(enum):
+        """ Helper function. Mergesorts array and counts smaller elements. """
         half = len(enum) // 2
         if half:
+            # Recursive call
             left, right = sort(enum[:half]), sort(enum[half:])
             for i in range(len(enum))[::-1]:
                 if not right or left and left[-1][1] > right[-1][1]:
+                    # Update smaller at index
                     smaller[left[-1][0]] += len(right)
                     enum[i] = left.pop()
                 else:
                     enum[i] = right.pop()
         return enum
+
+    # Intiate smaller
     smaller = [0 for v in nums]
     sort(list(enumerate(nums)))
     return smaller
+
 
 if __name__ == "__main__":
     print(naive_sol([3, 4, 9, 6, 1]))
