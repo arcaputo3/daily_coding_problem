@@ -26,22 +26,22 @@ class Node:
         self.right = None
 
 
-def insertLevelOrder(arr):
+def insert_level_order(arr):
     """ Function to insert nodes in level order. """
-    def _insertLevelOrder(arr, root, i, n):
+    def _insert_level_order(arr, root, i, n):
         """ Helper function for initialization. """
         # Base case for recursion
         if i < n:
             temp = Node(arr[i])
             root = temp
             # insert left child
-            root.left = _insertLevelOrder(arr, root.left,
+            root.left = _insert_level_order(arr, root.left,
                                          2 * i + 1, n)
             # insert right child
-            root.right = _insertLevelOrder(arr, root.right,
+            root.right = _insert_level_order(arr, root.right,
                                           2 * i + 2, n)
         return root
-    return _insertLevelOrder(arr, arr[0], 0, len(arr))
+    return _insert_level_order(arr, None, 0, len(arr))
 
 
 def arith(root):
@@ -65,5 +65,5 @@ def arith(root):
 
 # Test case
 if __name__ == "__main__":
-    head = insertLevelOrder(['*', '+', '+', 3, 2, 4, 5])
+    head = insert_level_order(['*', '+', '+', 3, 2, 4, 5])
     print(arith(head))
