@@ -45,7 +45,12 @@ def insert_level_order(arr):
 
 
 def arith(root):
-    """ Gets in-order arithmetic traversal of root and returns result. """
+    """ Gets in-order arithmetic traversal of root and returns result.
+    Does NOT handle cases that are not well-defined:
+        Well-defined tree:
+            - All non-leaf nodes are operations
+            - All leaf nodes are numbers.
+    We can think of this function as performing a real python arithmetic function. """
     # Easily grab operation
     op = {
     '+': lambda x, y: x + y,
@@ -58,8 +63,9 @@ def arith(root):
         return 0
     # Operation Case
     if root.data in op:
+        # Get's appropriate operation and performs recursively
         return op[root.data](arith(root.left), arith(root.right))
-    # Leaf case
+    # Leaf case - hit a number
     return root.data
 
 
