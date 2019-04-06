@@ -2,6 +2,7 @@
 What if the array can wrap around itself?
 """
 
+
 def max_subarray_sum(arr):
     """ Computes the maximum subarray sum of an array
     Input:
@@ -30,5 +31,5 @@ def max_subarray_sum_wraparound(arr):
 
 if __name__ == "__main__":
     arr = [34, -50, 42, 14, -5, 86]
-    print(max_subarray_sum(arr)) #137 - [42, 14, -5, 86]
-    print(max_subarray_sum_wraparound(arr)) #171 since we can add 34 to above
+    print(max_subarray_sum(arr))  # 137 - [42, 14, -5, 86]
+    print(max_subarray_sum_wraparound(arr))  # 171 since we can add 34 to above

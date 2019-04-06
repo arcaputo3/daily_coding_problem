@@ -1,6 +1,7 @@
 """ Return a tuple representing the minumum index range of an array that is out of order.
     For example, the array [3, 7, 5, 6, 9] would return (1, 3). """
 
+
 def min_arr_range(arr):
     """ Returns minimum index range that is out of order.
     Input:

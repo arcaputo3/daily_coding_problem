@@ -17,8 +17,10 @@ For example, given the following tree:
 You should return 45, as it is (3 + 2) * (4 + 5).
 """
 
+
 class Node:
     """ Simple Node class to represent arithmetic tree. """
+
     def __init__(self, data):
         """ Initialize with some data. """
         self.data = data
@@ -36,10 +38,10 @@ def insert_level_order(arr):
             root = temp
             # insert left child
             root.left = _insert_level_order(arr, root.left,
-                                         2 * i + 1, n)
+                                            2 * i + 1, n)
             # insert right child
             root.right = _insert_level_order(arr, root.right,
-                                          2 * i + 2, n)
+                                             2 * i + 2, n)
         return root
     return _insert_level_order(arr, None, 0, len(arr))
 
@@ -53,10 +55,10 @@ def arith(root):
     We can think of this function as performing a real python arithmetic function. """
     # Easily grab operation
     op = {
-    '+': lambda x, y: x + y,
-    '-': lambda x, y: x - y,
-    '*': lambda x, y: x * y,
-    '/': lambda x, y: x / y,
+        '+': lambda x, y: x + y,
+        '-': lambda x, y: x - y,
+        '*': lambda x, y: x * y,
+        '/': lambda x, y: x / y,
     }
     # Base case
     if not root:

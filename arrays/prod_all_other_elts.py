@@ -3,6 +3,7 @@ We want to obtain the product of all other elements in an array for each current
 Can we do this without using the division operator?
 """
 
+
 def arr_prod_w_div(arr):
     """ Takes an array as input and
     returns the product of all other elements for each element
@@ -22,7 +23,7 @@ def arr_prod_w_div(arr):
     # Correct for single 0
     if zero_count:
         return [0 if v else prod for v in arr]
-    return [prod//v for v in arr]
+    return [prod // v for v in arr]
 
 
 def arr_prod(arr):
@@ -33,15 +34,15 @@ def arr_prod(arr):
     left, right = [1], [1]
     # left[i] = product of each elt to left of elt i
     for v in arr[:-1]:
-        left.append(left[-1]*v)
+        left.append(left[-1] * v)
 
     # right[i] = product of each elt to right of elt i
     for v in reversed(arr[1:]):
-        right.append(right[-1]*v)
+        right.append(right[-1] * v)
     right.reverse()
 
     # prod[i] = left[i]*right[i]
-    return [l*r for l, r in zip(left, right)]
+    return [l * r for l, r in zip(left, right)]
 
 
 if __name__ == "__main__":

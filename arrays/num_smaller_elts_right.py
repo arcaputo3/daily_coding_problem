@@ -4,14 +4,16 @@ that element in the original input array.
 
 For example, given [3, 4, 9, 6, 1], return [1, 1, 2, 1, 0]. """
 
+
 def naive_sol(arr):
     """ Naive solution to above problem. Runs in O(n^2) time. """
     # Intiate output with zeros
     out = [0 for v in arr]
 
     for i, v1 in enumerate(arr[:-1]):
-        for v2 in arr[i+1:]:
-            if v1 > v2: out[i] += 1
+        for v2 in arr[i + 1:]:
+            if v1 > v2:
+                out[i] += 1
     return out
 
 

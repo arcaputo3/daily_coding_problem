@@ -7,36 +7,32 @@ Solution credit: https://www.dailycodingproblem.com/blog/anagram-indices/ """
 
 class FrequencyDict:
     """ Class for non-negative frequency counts. """
+
     def __init__(self, s):
         """ Init with a word. """
         self.d = {}
         for char in s:
             self.increment(char)
 
-
     def _create_if_not_exists(self, char):
         """ defaultdict functionality. """
         if char not in self.d:
             self.d[char] = 0
-
 
     def _del_if_zero(self, char):
         """ Ensure non-negative counts. """
         if self.d[char] == 0:
             del self.d[char]
 
-
     def is_empty(self):
         """ is_empty implies we have seen an anagram. """
         return not self.d
-
 
     def decrement(self, char):
         """ For ending indeces. """
         self._create_if_not_exists(char)
         self.d[char] -= 1
         self._del_if_zero(char)
-
 
     def increment(self, char):
         """ For starting indeces. """

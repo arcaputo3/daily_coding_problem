@@ -9,6 +9,7 @@ Hint: Make sure each one of the 52! permutations of the deck is equally likely.
 # To simulate random integer generator, import numpy.random.randint
 from numpy.random import randint
 
+
 def shuffle_arr(arr):
     """ Randomly permutes an array in O(n) time (in place).
         Ensures that the probability of achieving this order is 1/n!. """
@@ -16,7 +17,7 @@ def shuffle_arr(arr):
     for i, v in enumerate(arr):
         # At index i, generate random number from i to n-1
         # Same as generating random number from 1 to n-1-i and adding i
-        j = i + randint(len(arr)-i)
+        j = i + randint(len(arr) - i)
         # Swap random index
         arr[i], arr[j] = arr[j], arr[i]
     return arr
