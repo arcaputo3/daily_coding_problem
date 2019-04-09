@@ -6,6 +6,7 @@ Implement a URL shortener with the following methods:
 Hint: What if we enter the same URL twice?
 """
 
+
 class URL_shortener():
     """ URL Shortener:
     Returns six-character alphanumeric strings
