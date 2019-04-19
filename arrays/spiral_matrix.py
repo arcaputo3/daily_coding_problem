@@ -41,7 +41,7 @@ def spiral_matrix(mat):
         if start_col < end_col:
             # Print first column in reverse order
             for i in range(end_row - 1, start_row - 1, -1):
-                print(mat[i][start_col - 1])
+                print(mat[i][start_col])
             start_col += 1
 
     return mat
