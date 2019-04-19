@@ -13,9 +13,7 @@ def spiral_matrix(mat):
     Returns:
         mat as is (prints elements)
     """
-    # Base case check
-    if not mat:
-        return
+
     # Iterative
     start_row = start_col = 0
     end_row, end_col = len(mat), len(mat[0])
@@ -32,14 +30,16 @@ def spiral_matrix(mat):
             print(mat[i][end_col - 1])
         end_col -= 1
 
-        # Print bottom row in reverse order
+        # While loop internal check
         if start_row < end_row:
+            # Print bottom row in reverse order
             for j in range(end_col - 1, start_col - 1, -1):
                 print(mat[end_row - 1][j])
             end_row -= 1
 
-        # Print first column in reverse order
+        # While loop internal check
         if start_col < end_col:
+            # Print first column in reverse order
             for i in range(end_row - 1, start_row - 1, -1):
                 print(mat[i][start_col - 1])
             start_col += 1
