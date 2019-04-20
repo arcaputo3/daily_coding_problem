@@ -22,9 +22,10 @@ def toss_biased(p=GLOBAL_PROB):
 
 def fair_coin():
     """ Returns a fair coin toss using sequential biased coin tosses.
-    P(Heads) = p
-    P(Tails) = (1 - p)
+    P(H) = p
+    P(T) = (1 - p)
     P(HT) = P(TH) = p(1 - p)
+    Continue coin tosses until event HT or TH (Fair event).
     """
     last_toss = toss_biased()
     curr_toss = toss_biased()
@@ -40,9 +41,12 @@ if __name__ == "__main__":
     (t, h) = (tosses == 0).sum(), (tosses == 1).sum()
     print("Fair Toss Heads: ", h)
     print("Fair Toss Tails: ", t)
+    print()
     p = 1 / 2
     mu, sigma = p * TOSS_COUNT, np.sqrt(p * (1 - p) * TOSS_COUNT)
-    print(f"95% Confidence Interval: {mu - 2 * sigma, mu + 2 * sigma}")
+    ci = (mu - 2 * sigma, mu + 2 * sigma)
+    print(f"95% Confidence Interval: {ci}")
+    print(f"Estimated P(H) in 95% Confidence Interval: {ci[0] <= h <= ci[1]}")
     plt.title(f"Distribution of {TOSS_COUNT} Tosses")
     plt.ylabel("Number of Tosses")
     plt.bar(['Tails', 'Heads'], [t, h])
