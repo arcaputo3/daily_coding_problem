@@ -18,13 +18,14 @@ def overlapping_intervals(arr):
         for x_1, y_1 in arr[1:]:
             x_0, y_0 = out[-1]
             # Three cases
-            # Intervals don't overlap
-            if x_1 >= y_0:
+            # 1. Intervals don't overlap
+            if y_0 < x_1:
                 out.append((x_1, y_1))
-            # Start of next less than end of first
-            elif y_1 >= y_0:
+            # 2. Start of next less than end of first
+            #     and end of first less than end of next
+            elif y_0 < y_1:
                 out[-1] = (x_0, y_1)
-            # Next strictly within first
+            # 3. Next strictly within first
             # pass
         return out
     return arr
