@@ -21,7 +21,8 @@ def count_smaller(nums):
     """ Main solution. """
 
     def sort(enum):
-        """ Helper function. Mergesorts array and counts smaller elements. """
+        """ Helper function. Mergesorts array and counts smaller elements.
+            O(n log n) time. """
         half = len(enum) // 2
         if half:
             # Recursive call
