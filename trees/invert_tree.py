@@ -41,8 +41,7 @@ class Node:
 
 def invert_tree(root):
     """ Given the root of a BST,
-        returns the root of the
-        inversion of that tree. """
+        inverts that tree in place. """
     if root:
         root.left, root.right = root.right, root.left
         invert_tree(root.left)
