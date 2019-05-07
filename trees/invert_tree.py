@@ -30,7 +30,7 @@ class Node:
 
     def print_tree(self):
         """
-        Print tree content inorder
+        Print tree content inorder.
         """
         if self.left:
             self.left.print_tree()
@@ -41,8 +41,7 @@ class Node:
 
 def invert_tree(root):
     """ Given the root of a BST,
-        returns the root of the
-        inversion of that tree. """
+        invert that tree in place. """
     if root:
         root.left, root.right = root.right, root.left
         invert_tree(root.left)
@@ -62,9 +61,23 @@ if __name__ == "__main__":
     # Print current tree
     print("Current tree in left-to-right order")
     root.print_tree()
+    """
+        a
+       / \
+      b   c
+     / \  /
+    d   e f
+    """
     print()
 
     # Print inverted tree
     print("Inverted tree in left-to-right order")
     invert_tree(root)
     root.print_tree()
+    """
+      a
+     / \
+     c  b
+     \  / \
+      f e  d
+    """
