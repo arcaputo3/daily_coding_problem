@@ -41,7 +41,14 @@ class Node:
 
 def invert_tree(root):
     """ Given the root of a BST,
+<<<<<<< HEAD
         invert that tree in place. """
+||||||| merged common ancestors
+        returns the root of the
+        inversion of that tree. """
+=======
+        inverts that tree in place. """
+>>>>>>> 5eb5e000c7f559f6fabdb540f165eb573d74709e
     if root:
         root.left, root.right = root.right, root.left
         invert_tree(root.left)
