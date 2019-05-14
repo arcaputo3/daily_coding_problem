@@ -20,10 +20,11 @@ class Node:
 
 
 def is_valid_bst(root):
-    """ Determines if root is root of BST.
-        root >= root.left
-        root <= root.right
-        for all roots of tree
+    """
+    Determines if root is root of BST.
+    root >= root.left
+    root <= root.right
+    for all roots of tree
     """
 
     if not root:
