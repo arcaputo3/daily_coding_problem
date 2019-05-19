@@ -12,7 +12,6 @@ the function should return any random number { 2, 3, 5, 6 } with equal probabili
 """
 
 import numpy as np
-import random
 
 
 class UniformGenerator:
@@ -23,15 +22,16 @@ class UniformGenerator:
     def __init__(self, n, data):
         self.data = data
         self.max_num = n
-        self.usable = set()
-        for num in self.data:
-            self.usable.add(num)
-        self.usable = set(range(self.max_num)) - self.usable
+        self.usable = set(num for num in self.data)
+        self.usable = list(set(range(self.max_num)) - self.usable)
 
     def sample(self):
         """ Returns a random integer from 0 to n-1 uniform
             s.t. n not in l. """
-        return random.sample(self.usable, 1)[0]
+        if not self.usable:
+            return ValueError("No output to return")
+        idx = np.random.randint(0, len(self.usable))
+        return self.usable[idx]
 
 
 def bin_search(arr, k, lo, hi, left_misses):
@@ -65,7 +65,7 @@ def random_non_arr_elt(n, l):
 
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
-    ITERS = 5000
+    ITERS = 100000
     out = [0 for _ in range(ITERS)]
     l = [0, 2, 4]
 
@@ -74,6 +74,7 @@ if __name__ == "__main__":
         out[i] = gen.sample()
     # for i in range(ITERS):
     #     out[i] = random_non_arr_elt(7, l)
+
     print(out)
     plt.hist(out)
     plt.show()
